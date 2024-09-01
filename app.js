@@ -4,11 +4,14 @@ const container = document.querySelector('.container');
 function onClick() {
     let choice = prompt('How many squares per side of the grid?');
 
-    // Remove existing grid
     while (container.firstChild) {
         container.removeChild(container.firstChild);
     }
 
+    if (choice > 100) {
+        choice = 100;
+    }
+    
     createGrid(choice);
 }
 
@@ -23,7 +26,7 @@ function createGrid(dimensions) {
             gridSquare.className = 'square';
 
             gridSquare.addEventListener('mouseover', () => { // Add event listener for mouseover
-                gridSquare.style.backgroundColor = 'gold';
+                gridSquare.style.backgroundColor = 'black';
             });
 
             container.appendChild(gridSquare);
@@ -33,6 +36,3 @@ function createGrid(dimensions) {
 
 // Initial grid creation
 createGrid(16);
-
-// Add event listener to the button
-document.querySelector('button').addEventListener('click', onClick);
