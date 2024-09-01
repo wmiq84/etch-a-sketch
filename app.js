@@ -1,29 +1,38 @@
 const container = document.querySelector('.container');
 
-function createGrid() {
-    let row = 16;
-    let col = 16;
-    var gridSquares = [];
+// Create button
+function onClick() {
+    let choice = prompt('How many squares per side of the grid?');
 
-    for (let i = 0; i < row; i ++) {
-        gridSquares[i] = []; // helping to initialize a 2d array
-        for (let j = 0; j < col; j++) {
-            gridSquares[i][j] = document.createElement('div'); 
+    // Remove existing grid
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
 
-            const gridSquare = gridSquares[i][j];
-            gridSquare.className = "square";
+    createGrid(choice);
+}
 
- 
-            gridSquare.addEventListener('mouseover', () => { //add event listener for mouseover
-                gridSquare.style.backgroundColor = "gold";
+function createGrid(dimensions) {
+    // Set grid template based on dimensions
+    container.style.gridTemplateColumns = `repeat(${dimensions}, 1fr)`;
+    container.style.gridTemplateRows = `repeat(${dimensions}, 1fr)`;
+
+    for (let i = 0; i < dimensions; i++) {
+        for (let j = 0; j < dimensions; j++) {
+            const gridSquare = document.createElement('div'); 
+            gridSquare.className = 'square';
+
+            gridSquare.addEventListener('mouseover', () => { // Add event listener for mouseover
+                gridSquare.style.backgroundColor = 'gold';
             });
 
             container.appendChild(gridSquare);
-            console.log(gridSquares[i][j]);
         }
     }
 }
 
+// Initial grid creation
+createGrid(16);
 
-
-createGrid();
+// Add event listener to the button
+document.querySelector('button').addEventListener('click', onClick);
