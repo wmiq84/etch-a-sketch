@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 800px;
+    height: 850px;
+}
+
+.square {
+    padding: 8px;
+    width: 21px;
+    height: 21px;
+
+    border: 2px solid;
+    border-color: navy;
+}
