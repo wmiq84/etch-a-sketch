@@ -13,10 +13,17 @@ function createGrid() {
             const gridSquare = gridSquares[i][j];
             gridSquare.className = "square";
 
+ 
+            gridSquare.addEventListener('mouseover', () => { //add event listener for mouseover
+                gridSquare.style.backgroundColor = "gold";
+            });
+
             container.appendChild(gridSquare);
             console.log(gridSquares[i][j]);
         }
     }
 }
+
+
 
 createGrid();

@@ -14,3 +14,7 @@
     border: 2px solid;
     border-color: navy;
 }
+
+.square:hover {
+    background-color: aliceblue;
+}
